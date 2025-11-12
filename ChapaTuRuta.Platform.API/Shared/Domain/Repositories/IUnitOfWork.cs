@@ -1,0 +1,16 @@
+﻿namespace ChapaTuRuta.Platform.API.Shared.Domain.Repositories;
+
+/// <summary>
+///     Unit of work interface
+/// </summary>
+/// <remarks>
+///     This interface defines the basic operation for a unit of work
+/// </remarks>
+public interface IUnitOfWork
+{
+    /// <summary>
+    /// Commit changes to the database
+    /// </summary>
+    /// <returns></returns>
+    Task CompleteAsync();
+}

@@ -1,0 +1,28 @@
+﻿using ChapaTuRuta.Platform.API.IAM.Domain.Model.Aggregates;
+using ChapaTuRuta.Platform.API.IAM.Domain.Model.Queries;
+
+namespace ChapaTuRuta.Platform.API.IAM.Domain.Services;
+
+public interface IUserQueryService
+{
+    /// <summary>
+    ///     Handle get user by id query
+    /// </summary>
+    /// <param name="query">The get user by id query</param>
+    /// <returns>The user if found, null otherwise</returns>
+    Task<User?> Handle(GetUserByIdQuery query);
+    
+    /// <summary>
+    ///     Handle get all users query
+    /// </summary>
+    /// <param name="query">The get all users query</param>
+    /// <returns>The list of users</returns>
+    Task<IEnumerable<User>> Handle(GetAllUsersQuery query);
+    
+    /// <summary>
+    ///     Handle get user by email query
+    /// </summary>
+    /// <param name="query">The get user by email query</param>
+    /// <returns>The user if found, null otherwise</returns>
+    Task<User?> Handle(GetUserByEmailQuery query);
+}
