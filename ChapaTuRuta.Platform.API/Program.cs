@@ -62,7 +62,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
             .EnableDetailedErrors();
     else if (builder.Environment.IsProduction())
         options.UseMySQL(connectionString)
-            .LogTo(Console.WriteLine, LogLevel.Error);
+            .LogTo(Console.WriteLine, LogLevel.Error)
+            .EnableDetailedErrors();
 });
 
 //Add Swagger/OpenAPI Support
@@ -172,11 +173,8 @@ using (var scope = app.Services.CreateScope())
 }
 
 // Use Swagger for API documentation if in development mode
-if (app.Environment.IsDevelopment())
-{
     app.UseSwagger();
     app.UseSwaggerUI();
-}
 
 
 
